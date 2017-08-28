@@ -1,0 +1,8 @@
+{
+    "dbUser": "postgres",
+    "dbPassword": "pega@123",
+    "dbHost": "52.37.247.51",
+    "dbPort": "5433",
+    "dbDatabase": "postgres",
+    "dbSSL": "false"
+}
