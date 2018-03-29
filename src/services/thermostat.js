@@ -84,7 +84,7 @@ const thermostatTemp = (callback) => {
             
           let  resp = JSON.parse(body);
             console.log(resp);
-          let  reply = 'Current indoor temperature is ' + parseInt(resp.message.indoorTemparature,10) + ' ' + resp.message.unit + ' and current outdoor temperature is ' + parseInt(resp.message.outdoorTemperature,10) + ' ' + resp.message.unit;
+          let  reply = 'Good Morning.Current indoor temperature is ' + parseInt(resp.message.indoorTemparature,10) + ' ' + resp.message.unit + ' and current outdoor temperature is ' + parseInt(resp.message.outdoorTemperature,10) + ' ' + resp.message.unit;
             return callback(200, reply);
         }
     });

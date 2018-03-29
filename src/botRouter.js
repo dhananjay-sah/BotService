@@ -10,6 +10,7 @@ const baService = require('./services/billAsk.js');
 const bpService = require('./services/billPay.js');
 const tService  = require('./services/thermostat.js');
 const cService  = require('./services/camera.js');
+const hService  = require('./services/phillipsHue.js');
 
 const app = express();
 app.use(bodyParser.json());
@@ -51,6 +52,10 @@ app.get('/services/tservice', (req, res) => {
 
 app.get('/services/cservice', (req, res) => {
     cService.controlCamera(req, res);
+  });
+
+  app.get('/services/hservice', (req, res) => {
+    hService.controlHue(req, res);
   });
 // Set up server
 app.listen(process.env.PORT || 8080, () => {
