@@ -8,8 +8,7 @@ const dbService = require(`${appRoot}/src/dbService/dbOps.js`);
 
 const verifyAccess = (req, res) => {
     var passKey = req.query.passKey;
-    var fname = req.query.fname;
-    if (typeOf(passKey) !== 'undefined' || passKey !== '' || typeOf(fname) !== 'undefined' || fname !== '') {
+    if (typeOf(passKey) !== 'undefined' || passKey !== '') {
         // callback for receiving response from dbService
         const callback = (respArr) => {
             logger.debug(respArr.length);
@@ -29,8 +28,7 @@ const verifyAccess = (req, res) => {
             });
         };
         // check if user exists and return corresponding data
-        fname = fname.charAt(0).toUpperCase() + fname.slice(1);
-        dbService.getUserData(passKey, fname, callback);
+        dbService.getUserData(passKey, callback);
     } else {
         return res.status(400).json({
             message: 'Sorry , passphrase not provided',

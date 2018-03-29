@@ -9,10 +9,10 @@ const connection = dbConn.connection;
 
 // get user data
 
-const getUserData = (passphrase, fname, callback) => {
+const getUserData = (passphrase, callback) => {
     var arrResp = [];
     connection.connect().then(client => {
-        client.query('Select user_id as uid, user_fname as uname , user_bday as bday from chatbotsch.user_data where user_passkey = $1 AND user_fname = $2', [passphrase, fname]).then(res => {
+        client.query('Select user_id as uid, user_fname as uname , user_bday as bday from chatbotsch.user_data where user_passkey = $1', [passphrase]).then(res => {
                 if (res.rows.length) {
                     logger.debug('db res = ', res.rows[0]);
                     arrResp[0] = res.rows[0].uid;

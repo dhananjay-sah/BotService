@@ -18,7 +18,7 @@ const payBill = (req, res) => {
         }
 
         if (resp.statusCode === 200) {
-            return res.status(400).json({
+            return res.status(200).json({
                 message: 'You have successfully made your payment.'
             });
         }
