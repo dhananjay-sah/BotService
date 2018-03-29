@@ -2,9 +2,9 @@
 
 const request = require('request');
 
-module.exports.contorlThermostat = (req, res) => {
+module.exports.controlThermostat = (req, res) => {
 
-    consloe.log(req.query);
+    console.log(req.query);
 
 if(req.query.control === 'switch') {
     //on /off
@@ -42,7 +42,7 @@ const switchThermostat = (key, callback) => {
             return callback(400, 'Honeywell service connection error');
         } else {
             
-            resp = JSON.parse(body);
+          let  resp = JSON.parse(body);
             console.log(resp);
             return callback(200, resp.message)
         }
@@ -58,7 +58,7 @@ const thermostatFan = (key, callback) => {
             return callback(400, 'Honeywell service connection error');
         } else {
             
-            resp = JSON.parse(body);
+          let  resp = JSON.parse(body);
             console.log(resp);
             return callback(200, resp.message)
         }
@@ -74,9 +74,9 @@ const thermostatTemp = (callback) => {
             return callback(400, 'Honeywell service connection error');
         } else {
             
-            resp = JSON.parse(body);
+          let  resp = JSON.parse(body);
             console.log(resp);
-            reply = 'Current indoor temperature is ' + resp.message.indoorTemperature + ' ' + resp.message.unit + ' and current outdoor temperature is ' + resp.message.outdoorTemperature + ' ' + resp.message.unit;
+          let  reply = 'Current indoor temperature is ' + resp.message.indoorTemparature + ' ' + resp.message.unit + ' and current outdoor temperature is ' + resp.message.outdoorTemperature + ' ' + resp.message.unit;
             return callback(200, reply);
         }
     });

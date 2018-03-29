@@ -2,9 +2,9 @@
 
 const request = require('request');
 
-module.exports.contorlThermostat = (req, res) => {
+module.exports.controlCamera = (req, res) => {
 
-    consloe.log(req.query);
+    console.log(req.query);
 
 if(req.query.control === 'audio') {
     //on /off
@@ -61,7 +61,7 @@ const cameraAudio = (camera, key, callback) => {
             return callback(400, 'Honeywell service connection error');
         } else {
             
-            resp = JSON.parse(body);
+          let  resp = JSON.parse(body);
             console.log(resp);
             return callback(200, resp.message)
         }
@@ -84,7 +84,7 @@ const cameraMotion = (camera, key, callback) => {
             return callback(400, 'Honeywell service connection error');
         } else {
             
-            resp = JSON.parse(body);
+           let resp = JSON.parse(body);
             console.log(resp);
             return callback(200, resp.message)
         }
@@ -107,7 +107,7 @@ const cameraNightMode = (camera, key, callback) => {
             return callback(400, 'Honeywell service connection error');
         } else {
             
-            resp = JSON.parse(body);
+          let resp = JSON.parse(body);
             console.log(resp);
             return callback(200, resp.message)
         }
@@ -130,7 +130,7 @@ const cameraLed = (camera, key, callback) => {
             return callback(400, 'Honeywell service connection error');
         } else {
             
-            resp = JSON.parse(body);
+           let resp = JSON.parse(body);
             console.log(resp);
             return callback(200, resp.message)
         }

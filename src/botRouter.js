@@ -53,7 +53,7 @@ app.get('/services/cservice', (req, res) => {
     cService.controlCamera(req, res);
   });
 // Set up server
-app.listen(process.env.PORT || 8000, () => {
+app.listen(process.env.PORT || 8080, () => {
     logger.debug('chat bot service is up and listening');
     // end of server set up
 });
