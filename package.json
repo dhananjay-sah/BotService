@@ -10,6 +10,7 @@
   "license": "TCS",
   "dependencies": {
     "app-root-path": "^2.0.1",
+    "axios": "^0.18.0",
     "body-parser": "^1.17.1",
     "dateformat": "^2.0.0",
     "express": "^4.15.2",
