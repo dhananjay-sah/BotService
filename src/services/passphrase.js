@@ -13,15 +13,15 @@ const verifyAccess = (req, res) => {
         const callback = (respArr) => {
             logger.debug(respArr.length);
             if (respArr.length === 0) {
-                logger.debug('Sorry , you do not have access rights to use the billing service');
+                logger.debug('Sorry , you do not have access rights to use the home service');
                 return res.status(400).json({
-                    message: 'Sorry , you do not have access rights to use the billing service',
+                    message: 'Sorry , you do not have access rights to use the home service',
                     access: 'not granted'
                 });
             }
-            logger.debug(`Welcome ${respArr[1]} , you now have access to your billing services. What would you like to do ?`);
+            logger.debug(`Welcome ${respArr[1]} , you now have access to your home services. What would you like to do ?`);
             return res.status(200).json({
-                message: `Welcome ${respArr[1]} , you now have access to your billing services. What would you like to do ?`,
+                message: `Welcome ${respArr[1]} , you now have access to your home services. What would you like to do ?`,
                 uid: respArr[0],
                 dob: `${respArr[2]}`,
                 access: 'granted'
