@@ -32,7 +32,7 @@ if(req.query.control === 'switch') {
     });
   } else if(req.query.control === 'setpoint') {
     //temp
-    thermostatSetpoint((status, messg) => {
+    thermostatSetpoint(req.query.key, (status, messg) => {
        // return result from thermostat service
         return res.status(status).json({
         message: messg
@@ -90,10 +90,10 @@ const thermostatTemp = (callback) => {
     });
 }
 
-const thermostatSetpoint = (callback) => {
+const thermostatSetpoint = (key, callback) => {
     let URL = 'http://ec2-34-208-130-135.us-west-2.compute.amazonaws.com:8080/SPConnectedHome/rest/service/GetHoneywellThermostatSetPointValue?userName=Hackathon&setPointType=';
     
-    request.get(URL, (error, response, body) => {
+    request.get(URL+key, (error, response, body) => {
      
         if(error) {
             return callback(400, 'Honeywell service connection error');
@@ -101,7 +101,7 @@ const thermostatSetpoint = (callback) => {
             
           let  resp = JSON.parse(body);
             console.log(resp);
-          let  reply = 'Thermostat temperature point set to ' + parseInt(resp.message.indoorTemparature,10) + ' degree celcius';
+          let  reply = 'Thermostat temperature point set to ' + parseInt(resp.message,10) + ' degree celcius';
             return callback(200, reply);
         }
     });
